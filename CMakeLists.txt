@@ -15,6 +15,7 @@ set(IMGUI_SRC
 set(IMGUI_BACKENDS_SRC
     backends/imgui_impl_opengl3.cpp
     backends/imgui_impl_vulkan.cpp
+    backends/imgui_impl_glfw.cpp
 )
 
 # Add ImGui library as a static library
@@ -25,9 +26,6 @@ target_include_directories(imgui PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/backends
 )
-
-# Link with Vulkan and OpenGL libraries
-find_package(Vulkan REQUIRED)
 
 target_link_libraries(imgui PUBLIC
     Vulkan::Vulkan
